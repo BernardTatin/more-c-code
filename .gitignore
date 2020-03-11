@@ -50,3 +50,13 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# from IDEs and editors
+*.iml
+.idea/
+.*.swp
+*.bak
+
+# temporary files
+*.tmp
+*.log
