@@ -16,5 +16,11 @@ typedef struct _TSPstring {
 } TSPstring;
 
 TSPstring *pstring_new(char *str);
+void pstring_delete(TSPstring *pstr);
+TSPstring *pstring_cat(TSPstring *p1, TSPstring *p2);
+
+static inline int get_len_alloc(const int str_len) {
+    return (str_len + 1 + PSTR_DELTA_ALLOC) & ~(PSTR_DELTA_ALLOC - 1);
+}
 
 #endif //MORE_C_CODE_PSTRING_H

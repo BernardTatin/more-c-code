@@ -8,5 +8,3 @@ include $(compiler).mk
 
 %.o: %.c
 	$(CC) -c $< -o $@
-
-
