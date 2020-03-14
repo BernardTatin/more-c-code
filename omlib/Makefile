@@ -3,21 +3,28 @@
 # for omlib
 # ======================================================================
 
-SOURCES = omltest.c pstring.c
-OBJS = $(patsubst %.c,%.o,$(notdir $(SOURCES)))
+LIBSRC = pstring.c
+EXESRC = omltest.c
+SOURCES = $(EXESRC) $(LIBSRC)
+LIB = libomltest.a
 EXE = omltest.exe
 
 include compile.mk
 
-all: $(EXE)
+all: $(LIB) $(EXE)
 
 include clean.mk
 
 tests: all
 	./$(EXE)
 
-$(EXE): $(OBJS)
-	$(LD) $(OBJS) -o $@
+$(LIB): $(LIBOBJS)
+	$(AR) $(LIB) $(LIBOBJS)
+
+#	$(RANLIB) $(LIB)
+
+$(EXE): $(EXEOBJS)
+	$(LD) -L. $(EXEOBJS) -o $@ -lomltest
 
 .PHONY: all tests
 
