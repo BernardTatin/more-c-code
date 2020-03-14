@@ -1,24 +1,31 @@
 # ======================================================================
 # Makefile
+#
 # ======================================================================
 
+compiler ?= gcc
+
+mkoptions = -I../mk compiler=$(compiler)
+
 help:
-	@echo "make project=project_project_name target"
-	@echo "project names:"
-	@echo "		omlib: the library (One More library)"
-	@echo "targets:"
-	@echo "		all: all"
-	@echo "		clean: remove all compilation and tests products"
-	@echo "		tests: run all the tests"
+	@echo "$(MAKE) [OPTIONS] project=project_project_name target"
+	@echo "   OPTIONS:"
+	@echo "      compiler=gccXXX|clangXXX"
+	@echo "   project names:"
+	@echo "      omlib: the library (One More library)"
+	@echo "   targets:"
+	@echo "      all: all"
+	@echo "      clean: remove all compilation and tests products"
+	@echo "      tests: run all the tests"
 
 all:
-	make -C $(project) all
+	$(MAKE) -C $(project) $(mkoptions) all
 
 clean:
-	make -C $(project) clean
+	$(MAKE) -C $(project) $(mkoptions) clean
 
 tests:
-	make -C $(project) tests
+	$(MAKE) -C $(project) $(mkoptions) tests
 
 .PHONY: help all clean tests
 

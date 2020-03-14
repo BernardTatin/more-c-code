@@ -60,3 +60,7 @@ dkms.conf
 # temporary files
 *.tmp
 *.log
+
+# CMake
+omlib/CMakeFiles/
+omlib/CMakeCache.txt
