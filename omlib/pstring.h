@@ -9,15 +9,14 @@
 
 #define PSTR_DELTA_ALLOC    32
 
-typedef struct _TSPstring {
-    char *string;
-    int length;
-    int allocated;
-} TSPstring;
+typedef struct PString PString;
 
-TSPstring *pstring_new(char *str);
-void pstring_delete(TSPstring *pstr);
-TSPstring *pstring_cat(TSPstring *p1, TSPstring *p2);
+PString *pstrnew(char *str);
+void pstrdelete(PString *pstr);
+PString *pstrcat(PString *p1, PString *p2);
+int pstrlen(PString *pstr);
+int pstrallocated(PString *pstr);
+char *pstr2char(PString *pstr);
 
 static inline int get_len_alloc(const int str_len) {
     return (str_len + 1 + PSTR_DELTA_ALLOC) & ~(PSTR_DELTA_ALLOC - 1);

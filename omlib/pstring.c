@@ -9,8 +9,16 @@
 
 #include "pstring.h"
 
-TSPstring *pstring_new(char *str) {
-    TSPstring *pstr = (TSPstring *)malloc(sizeof(TSPstring));
+struct PString {
+  char *string;
+  int length;
+  int allocated;
+};
+
+
+
+PString *pstrnew(char *str) {
+    PString *pstr = (PString *)malloc(sizeof(PString));
     int len0 = strlen(str);
     int len_alloc = get_len_alloc(len0);
 
@@ -21,7 +29,7 @@ TSPstring *pstring_new(char *str) {
     return pstr;
 }
 
-void pstring_delete(TSPstring *pstr) {
+void pstrdelete(PString *pstr) {
     if (pstr != NULL) {
         if (pstr->string != NULL) {
             free(pstr->string);
@@ -30,7 +38,7 @@ void pstring_delete(TSPstring *pstr) {
     }
 }
 
-TSPstring *pstring_cat(TSPstring *p1, TSPstring *p2) {
+PString *pstrcat(PString *p1, PString *p2) {
     int new_length = p1->length + p2->length;
 
     if (new_length  + 1 > p1->allocated) {
@@ -44,3 +52,14 @@ TSPstring *pstring_cat(TSPstring *p1, TSPstring *p2) {
     return p1;
 }
 
+int pstrlen(PString *pstr) {
+  return pstr->length;
+}
+
+int pstrallocated(PString *pstr) {
+  return pstr->allocated;
+}
+
+char *pstr2char(PString *pstr) {
+  return pstr->string;
+}

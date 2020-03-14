@@ -7,9 +7,9 @@
 
 #include "pstring.h"
 
-static inline void debug_pstr(TSPstring *pstr) {
+static inline void debug_pstr(PString *pstr) {
     printf("%s, %d, %d\n",
-           pstr->string, pstr->length, pstr->allocated);
+           pstr2char(pstr), pstrlen(pstr), pstrallocated(pstr));
 }
 
 int main(void) {
@@ -21,20 +21,20 @@ int main(void) {
         }
         printf("%4d", get_len_alloc(i));
     }
-    TSPstring *hello = pstring_new("Hello! La phrase stupide des livres de programmation pour débutant.");
+    PString *hello = pstrnew("Hello! La phrase stupide des livres de programmation pour débutant.");
 
     debug_pstr(hello);
 
-    TSPstring *s0 = pstring_new("hello");
-    TSPstring *s1 = pstring_new(" you!!!");
-    TSPstring *s2 = pstring_new(" and you, and you, and you too...");
+    PString *s0 = pstrnew("hello");
+    PString *s1 = pstrnew(" you!!!");
+    PString *s2 = pstrnew(" and you, and you, and you too...");
 
     debug_pstr(s0);
     debug_pstr(s1);
     debug_pstr(s2);
-    s0 = pstring_cat(s0, s1);
+    s0 = pstrcat(s0, s1);
     debug_pstr(s0);
-    s0 = pstring_cat(s0, s2);
+    s0 = pstrcat(s0, s2);
     debug_pstr(s0);
 
     printf("======================================================================\n");
