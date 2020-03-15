@@ -14,13 +14,16 @@ static inline void debug_pstr(PString *pstr) {
 
 int main(void) {
     printf("======================================================================\n");
+    // for this test, you must include inner_pstring.h
+    /*
     printf("\n\n get_len_alloc:\n");
     for (int i=0; i<257; i++) {
         if ((i & 15) == 0) {
             putchar('\n');
         }
         printf("%4d", get_len_alloc(i));
-    }
+    }*/
+
     PString *hello = pstrnew("Hello! La phrase stupide des livres de programmation pour débutant.");
 
     debug_pstr(hello);

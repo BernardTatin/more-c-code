@@ -7,13 +7,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "inner_pstring.h"
 #include "pstring.h"
-
-struct PString {
-  char *string;
-  int length;
-  int allocated;
-};
 
 
 
