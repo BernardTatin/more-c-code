@@ -12,7 +12,10 @@ typedef struct PString PString;
 
 PString *pstrnew(char *str);
 void pstrdelete(PString *pstr);
+
 PString *pstrcat(PString *p1, PString *p2);
+PString *pstrcpy(PString *p1, PString *p2);
+
 int pstrlen(PString *pstr);
 int pstrallocated(PString *pstr);
 char *pstr2char(PString *pstr);

@@ -40,6 +40,11 @@ int main(void) {
     s0 = pstrcat(s0, s2);
     debug_pstr(s0);
 
+    printf("strcpy...\n");
+    pstrcpy(s0, s2);
+    debug_pstr(s0);
+    pstrcpy(s0, s1);
+    debug_pstr(s0);
     printf("======================================================================\n");
     return 0;
 }

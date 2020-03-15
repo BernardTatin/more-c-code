@@ -47,6 +47,19 @@ PString *pstrcat(PString *p1, PString *p2) {
     return p1;
 }
 
+PString *pstrcpy(PString *p1, PString *p2) {
+  int new_length = p2->length;
+
+  if (new_length + 1 > p1->allocated) {
+    int new_alloc = p2->allocated;
+    p1->string = (char *)realloc(p1->string, new_alloc);
+    p1->allocated = new_alloc;
+  }
+  memmove(p1->string, p2->string, p2->length + 1);
+  p1->length = new_length;
+  return p1;
+}
+
 int pstrlen(PString *pstr) {
   return pstr->length;
 }
