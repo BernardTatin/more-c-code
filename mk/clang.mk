@@ -6,3 +6,6 @@
 
 CC = clang -std=c11 -Wall
 LD = clang
+
+AR = llvm-ar-9 rcs
+RANLIB = llvm-ranlib-9

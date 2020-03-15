@@ -6,3 +6,6 @@
 
 CC = gcc -std=c11 -Wall
 LD = gcc
+
+AR = ar rcs
+RANLIB = ranlib
