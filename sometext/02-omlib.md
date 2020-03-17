@@ -1,5 +1,14 @@
 # `omlib`, the ___O(ne) M(ore) lib(rary)___
 
+## more...
+
+Here are some more texts:
+
+- [C projects](sometext/01-c-projects.md)
+- [`omlib`, the ___O(ne) M(ore) lib(rary)___](sometext/02-omlib.md)
+
+## the story
+
 This library is not the first of that type, there is certainly better ones elsewhere.  This libary is mine, experimental, with all I need.
 
 ## features
