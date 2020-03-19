@@ -4,7 +4,14 @@
 # all about compilation
 # ======================================================================
 
-include $(compiler).mk
+compfamily ?=
+ifneq (,$(findstring gcc,$(compiler)))
+compfamily = gcc
+else ifneq (,$(findstring clang,$(compiler)))
+compfamily = clang
+endif
+
+include $(compfamily).mk
 
 LIBOBJS = $(patsubst %.c,%.o,$(notdir $(LIBSRC)))
 EXEOBJS = $(patsubst %.c,%.o,$(notdir $(EXESRC)))
