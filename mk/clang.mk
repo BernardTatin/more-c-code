@@ -4,8 +4,8 @@
 # all about clang
 # ======================================================================
 
-CC = clang -std=c11 -Wall
-LD = clang
+CC = $(compiler) -std=c11 -Wall
+LD = $(compiler)
 
 AR = llvm-ar-9 rcs
 RANLIB = llvm-ranlib-9
