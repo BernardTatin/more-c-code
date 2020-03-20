@@ -9,6 +9,8 @@ SOURCES = $(EXESRC) $(LIBSRC)
 LIB = libomltest.a
 EXE = omltest.exe
 
+CFLAGS += -std=c11 -Wall
+LDFLAGS += -L. -lomltest
 include compile.mk
 
 all: $(LIB) $(EXE)
@@ -21,10 +23,8 @@ tests: all
 $(LIB): $(LIBOBJS)
 	$(AR) $(LIB) $(LIBOBJS)
 
-#	$(RANLIB) $(LIB)
-
 $(EXE): $(EXEOBJS)
-	$(LD) -L. $(EXEOBJS) -o $@ -lomltest
+	$(LD) $(EXEOBJS) $(LDFLAGS) -o $@
 
 .PHONY: all tests
 

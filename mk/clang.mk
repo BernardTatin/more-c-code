@@ -4,7 +4,8 @@
 # all about clang
 # ======================================================================
 
-CC = $(compiler) -std=c11 -Wall
+
+CC = $(compiler) $(CFLAGS)
 LD = $(compiler)
 
 AR = llvm-ar-9 rcs

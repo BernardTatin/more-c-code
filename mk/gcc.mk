@@ -4,8 +4,10 @@
 # all about gcc
 # ======================================================================
 
-CC = $(compiler) -std=c11 -Wall
-LD = $(compiler)
+CFLAGS += -std=c11 -Wall
+
+CC = $(compiler) $(CFLAGS)
+LD = $(compiler) $(LDFLAGS)
 
 AR = ar rcs
 RANLIB = ranlib

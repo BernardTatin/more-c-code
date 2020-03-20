@@ -4,11 +4,10 @@
 # all about compilation
 # ======================================================================
 
-compfamily ?=
 ifneq (,$(findstring gcc,$(compiler)))
-compfamily = gcc
+compfamily := gcc
 else ifneq (,$(findstring clang,$(compiler)))
-compfamily = clang
+compfamily := clang
 endif
 
 include $(compfamily).mk

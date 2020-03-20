@@ -3,7 +3,7 @@
 #
 # ======================================================================
 
-compiler ?= gcc
+compiler ?= ${CC}
 
 mkoptions = -I../mk compiler=$(compiler)
 
