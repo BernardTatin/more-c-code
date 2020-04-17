@@ -3,5 +3,4 @@ project(mlib C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_library(libmlib STATIC pstring.c)
-add_executable(omltest.exe omltest.c)
+add_library(omlib STATIC omlib/pstring.c omlib/pstring.h omlib/inner_pstring.h )
